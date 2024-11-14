@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjaa3lck17e3x"]
+
+[ext_resource type="Shader" path="res://Scrolling.gdshader" id="1_8xw14"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lhri2"]
+shader = ExtResource("1_8xw14")
+shader_parameter/scroll_speed = 1.0
+shader_parameter/color = Color(0, 0.4, 1, 1)
+
+[node name="ScrollingG" type="TextureRect"]
+material = SubResource("ShaderMaterial_lhri2")
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+stretch_mode = 1

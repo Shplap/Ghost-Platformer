@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://eywbaplbrm41"
+path="res://.godot/imported/achievement_01.ogg-fa8bd1e5ea2b24fa2955cb233ca1da0f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets definitely not taken from GD/achievement_01.ogg"
+dest_files=["res://.godot/imported/achievement_01.ogg-fa8bd1e5ea2b24fa2955cb233ca1da0f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

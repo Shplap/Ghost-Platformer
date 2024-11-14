@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://csaf2ut7dyaln"
+path="res://.godot/imported/highscoreGet02.ogg-12a47968db123486cfebba642e3091dd.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets definitely not taken from GD/highscoreGet02.ogg"
+dest_files=["res://.godot/imported/highscoreGet02.ogg-12a47968db123486cfebba642e3091dd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

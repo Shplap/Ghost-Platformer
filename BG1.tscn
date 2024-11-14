@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgy0na2ibs0yq"]
+
+[ext_resource type="PackedScene" uid="uid://qj0hdqdmjdyn" path="res://ScrollingBG.tscn" id="1_runjf"]
+[ext_resource type="Texture2D" uid="uid://dw6y2v87puoi5" path="res://Assets definitely not taken from GD/game_bg_01_001-uhd.png" id="2_ql7mb"]
+
+[node name="BG1" type="Node2D"]
+
+[node name="ScrollingBG" parent="." instance=ExtResource("1_runjf")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = -500.0
+offset_right = 2048.0
+offset_bottom = 1548.0
+scale = Vector2(0.565, 0.565)
+texture = ExtResource("2_ql7mb")

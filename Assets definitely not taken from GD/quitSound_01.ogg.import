@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://o4pcni0r0el8"
+path="res://.godot/imported/quitSound_01.ogg-56d7b91e7dc8d80dca5eac8f63ff591a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets definitely not taken from GD/quitSound_01.ogg"
+dest_files=["res://.godot/imported/quitSound_01.ogg-56d7b91e7dc8d80dca5eac8f63ff591a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

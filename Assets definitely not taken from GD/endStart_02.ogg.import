@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://npgqik77cs20"
+path="res://.godot/imported/endStart_02.ogg-c099f3ed6aecf10880493ca7f601fab7.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets definitely not taken from GD/endStart_02.ogg"
+dest_files=["res://.godot/imported/endStart_02.ogg-c099f3ed6aecf10880493ca7f601fab7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbqig81xot2ik"]
+
+[ext_resource type="PackedScene" uid="uid://cjaa3lck17e3x" path="res://ScrollingG.tscn" id="1_4sb87"]
+[ext_resource type="Texture2D" uid="uid://ckaw5oqdixju7" path="res://Assets definitely not taken from GD/groundSquare_01_001-uhd.png" id="2_oat03"]
+
+[node name="G1" type="Node2D"]
+
+[node name="ScrollingG" parent="." instance=ExtResource("1_4sb87")]
+anchors_preset = 15
+offset_top = 500.0
+offset_right = 2050.0
+offset_bottom = 1012.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.565, 0.565)
+texture = ExtResource("2_oat03")

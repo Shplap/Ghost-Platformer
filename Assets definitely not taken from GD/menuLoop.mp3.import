@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jrv20xfku164"
+path="res://.godot/imported/menuLoop.mp3-60b1c521ce9e7a6d7d2a4bcd1d87a4cf.mp3str"
+
+[deps]
+
+source_file="res://Assets definitely not taken from GD/menuLoop.mp3"
+dest_files=["res://.godot/imported/menuLoop.mp3-60b1c521ce9e7a6d7d2a4bcd1d87a4cf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

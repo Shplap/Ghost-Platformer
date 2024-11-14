@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnpsworwwe6gh"
+path="res://.godot/imported/StayInsideMe.mp3-a42ed2fc01927bb0f01551ee7141a7ac.mp3str"
+
+[deps]
+
+source_file="res://Assets definitely not taken from GD/StayInsideMe.mp3"
+dest_files=["res://.godot/imported/StayInsideMe.mp3-a42ed2fc01927bb0f01551ee7141a7ac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

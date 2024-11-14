@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddk8cv4hvdqb4"
+path="res://.godot/imported/More Plastic - Obsession [NCS Release] (Instrumental).mp3-61573ead884abe5e81c6276c98003717.mp3str"
+
+[deps]
+
+source_file="res://More Plastic - Obsession [NCS Release] (Instrumental).mp3"
+dest_files=["res://.godot/imported/More Plastic - Obsession [NCS Release] (Instrumental).mp3-61573ead884abe5e81c6276c98003717.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
