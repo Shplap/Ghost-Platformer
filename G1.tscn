@@ -6,10 +6,9 @@
 [node name="G1" type="Node2D"]
 
 [node name="ScrollingG" parent="." instance=ExtResource("1_4sb87")]
-anchors_preset = 15
-offset_top = 500.0
+offset_top = 465.0
 offset_right = 2050.0
-offset_bottom = 1012.0
+offset_bottom = 977.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.565, 0.565)

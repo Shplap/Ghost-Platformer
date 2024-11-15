@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Ghost-Platformer"
+config/name="Geometry  Shplap"
+config/version="2.2"
 run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+config/icon="res://GameIcon.png"
 
 [dotnet]
 
