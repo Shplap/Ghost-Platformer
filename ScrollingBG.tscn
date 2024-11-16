@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://qj0hdqdmjdyn"]
+[gd_scene load_steps=4 format=3 uid="uid://qj0hdqdmjdyn"]
 
 [ext_resource type="Shader" path="res://Scrolling.gdshader" id="1_1sybn"]
+[ext_resource type="Script" path="res://BG1.gd" id="2_ryuvb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_em8ew"]
 shader = ExtResource("1_1sybn")
-shader_parameter/scroll_speed = 0.05
+shader_parameter/scroll_speed = 0.0
 shader_parameter/color = Color(0.14902, 0.490196, 1, 1)
 
 [node name="ScrollingBG" type="TextureRect"]
@@ -17,3 +18,4 @@ offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 1
+script = ExtResource("2_ryuvb")

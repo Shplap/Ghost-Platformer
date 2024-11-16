@@ -1,0 +1,158 @@
+[gd_scene load_steps=17 format=3 uid="uid://bq33f624npb3f"]
+
+[ext_resource type="Shader" path="res://OLD/SuperTextureSplitOLD.gdshader" id="1_tirt3"]
+[ext_resource type="Texture2D" uid="uid://juakspkldjmr" path="res://Assets definitely not taken from GD/player_04-uhd.png" id="2_evu3m"]
+[ext_resource type="Shader" path="res://SuperTexture.gdshader" id="3_qi8le"]
+[ext_resource type="Texture2D" uid="uid://7pgidu8cp84u" path="res://Assets definitely not taken from GD/pixel-hd.png" id="4_wtc7w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tehmx"]
+shader = ExtResource("1_tirt3")
+shader_parameter/start_x = 132.0
+shader_parameter/start_y = 2.0
+shader_parameter/width = 120.0
+shader_parameter/height = 120.0
+shader_parameter/color = Color(1, 0.72549, 0, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/texture_size = Vector2(255, 180)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_capr7"]
+shader = ExtResource("1_tirt3")
+shader_parameter/start_x = 133.0
+shader_parameter/start_y = 124.0
+shader_parameter/width = 70.0
+shader_parameter/height = 53.0
+shader_parameter/color = Color(0, 1, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/texture_size = Vector2(255, 180)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_20fqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8qld"]
+size = Vector2(61, 61)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_femh6"]
+shader = ExtResource("1_tirt3")
+shader_parameter/start_x = 2.0
+shader_parameter/start_y = 3.0
+shader_parameter/width = 128.0
+shader_parameter/height = 128.0
+shader_parameter/color = Color(0, 1, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/texture_size = Vector2(255, 180)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rapsl"]
+shader = ExtResource("3_qi8le")
+shader_parameter/color_mix = 0.75
+shader_parameter/color = Color(1, 0.72549, 0, 1)
+shader_parameter/gradient = false
+shader_parameter/color2 = Color(1, 1, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/opacity = 1.0
+
+[sub_resource type="Gradient" id="Gradient_irsvj"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0bu6o"]
+gradient = SubResource("Gradient_irsvj")
+
+[sub_resource type="Curve" id="Curve_0d2xx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sr7wd"]
+curve = SubResource("Curve_0d2xx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_grd73"]
+particle_flag_disable_z = true
+direction = Vector3(5, 1, 0)
+spread = 0.0
+initial_velocity_min = -1000.0
+initial_velocity_max = -1000.0
+gravity = Vector3(-200, 750, 0)
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_sr7wd")
+color_ramp = SubResource("GradientTexture1D_0bu6o")
+turbulence_enabled = true
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 0.1
+turbulence_noise_speed = Vector3(0, 1, 0)
+turbulence_influence_min = 0.05
+turbulence_influence_max = 0.05
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uq7a0"]
+particle_flag_disable_z = true
+direction = Vector3(5, 1, 0)
+spread = 0.0
+initial_velocity_min = -1000.0
+initial_velocity_max = -1000.0
+gravity = Vector3(-100, 1000, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_sr7wd")
+color_ramp = SubResource("GradientTexture1D_0bu6o")
+turbulence_enabled = true
+turbulence_noise_scale = 1.0
+turbulence_noise_speed = Vector3(0, -1, 0)
+
+[node name="PlayerOLD" type="Node2D"]
+
+[node name="Cube" type="TextureRect" parent="."]
+z_index = 2
+z_as_relative = false
+material = SubResource("ShaderMaterial_tehmx")
+offset_left = 392.5
+offset_top = 404.5
+offset_right = 453.5
+offset_bottom = 465.5
+texture = ExtResource("2_evu3m")
+expand_mode = 1
+
+[node name="Cube2" type="TextureRect" parent="Cube"]
+z_index = 1
+z_as_relative = false
+material = SubResource("ShaderMaterial_capr7")
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 51.0
+offset_bottom = 42.0
+texture = ExtResource("2_evu3m")
+expand_mode = 1
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Cube"]
+physics_material_override = SubResource("PhysicsMaterial_20fqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cube/RigidBody2D"]
+position = Vector2(30.5, 30.5)
+shape = SubResource("RectangleShape2D_m8qld")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="CubeGlow" type="TextureRect" parent="Cube"]
+z_index = -1
+material = SubResource("ShaderMaterial_femh6")
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 63.5
+offset_bottom = 63.5
+texture = ExtResource("2_evu3m")
+expand_mode = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Cube"]
+z_index = -2
+material = SubResource("ShaderMaterial_rapsl")
+position = Vector2(10, 54.5)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_grd73")
+texture = ExtResource("4_wtc7w")
+lifetime = 0.3
+fixed_fps = 60
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Cube"]
+z_index = -2
+material = SubResource("ShaderMaterial_rapsl")
+position = Vector2(10, 54.5)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_uq7a0")
+texture = ExtResource("4_wtc7w")
+lifetime = 0.3

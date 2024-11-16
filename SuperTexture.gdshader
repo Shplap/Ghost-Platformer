@@ -16,7 +16,7 @@ void fragment() {
 	
 	if (gradient) {
 		// Calculate the position of the gradient based on UV.x (or UV.y, depending on the direction of the gradient)
-		float gradient_factor = abs(UV.y - 0.5) * 2.0; // Creates a gradient from color2 to color and back to color2
+		float gradient_factor = abs(UV.y - 0.5) * 25.0; // Creates a gradient from color2 to color and back to color2
 		
 		// Interpolate between color2 and color based on the gradient factor
 		vec4 gradient_color = mix(color, color2, gradient_factor);
@@ -31,5 +31,6 @@ void fragment() {
 		COLOR.a = alpha - (1.0-opacity);
 	} else {
 		COLOR = col;
+		COLOR.a -= (1.0-opacity);
 	}
 }

@@ -1,19 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbqig81xot2ik"]
+[gd_scene load_steps=7 format=3 uid="uid://dbqig81xot2ik"]
 
 [ext_resource type="PackedScene" uid="uid://cjaa3lck17e3x" path="res://ScrollingG.tscn" id="1_4sb87"]
 [ext_resource type="Texture2D" uid="uid://ckaw5oqdixju7" path="res://Assets definitely not taken from GD/groundSquare_01_001-hd.png" id="2_wbaav"]
-[ext_resource type="Shader" path="res://SuperTextureSplit.gdshader" id="3_f4x4j"]
-[ext_resource type="Texture2D" uid="uid://ih2rhw833dhh" path="res://Assets definitely not taken from GD/GJ_GameSheet03-uhd.png" id="4_txtvj"]
+[ext_resource type="Shader" path="res://SuperTexture.gdshader" id="3_lb4qb"]
+[ext_resource type="Texture2D" uid="uid://y2vu7mkliy2g" path="res://Assets definitely not taken from GD/GJ_GameSheet03-shplap.png" id="4_2bj5i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gghjx"]
-shader = ExtResource("3_f4x4j")
-shader_parameter/start_x = 3116.0
-shader_parameter/start_y = 963.0
-shader_parameter/width = 512.0
-shader_parameter/height = 500.0
+shader = ExtResource("3_lb4qb")
+shader_parameter/color_mix = 0.0
 shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/gradient = false
+shader_parameter/color2 = Color(1, 1, 1, 1)
 shader_parameter/brightness = 0.5
-shader_parameter/texture_size = Vector2(4096, 4096)
+shader_parameter/opacity = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao563"]
+atlas = ExtResource("4_2bj5i")
+region = Rect2(3116, 963, 512, 500)
 
 [node name="G1" type="Node2D"]
 
@@ -33,7 +36,7 @@ offset_top = 719.0
 offset_right = 192.0
 offset_bottom = 975.0
 rotation = -1.5708
-texture = ExtResource("4_txtvj")
+texture = SubResource("AtlasTexture_ao563")
 expand_mode = 2
 stretch_mode = 4
 
@@ -44,6 +47,6 @@ offset_top = 463.0
 offset_right = 1472.0
 offset_bottom = 719.0
 rotation = 1.5708
-texture = ExtResource("4_txtvj")
+texture = SubResource("AtlasTexture_ao563")
 expand_mode = 2
 stretch_mode = 4
