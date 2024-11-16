@@ -4,7 +4,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lhri2"]
 shader = ExtResource("1_8xw14")
-shader_parameter/scroll_speed = 1.0
+shader_parameter/scroll_speed = 3.0
 shader_parameter/color = Color(0, 0.4, 1, 1)
 
 [node name="ScrollingG" type="TextureRect"]

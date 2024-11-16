@@ -1,15 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbqig81xot2ik"]
+[gd_scene load_steps=6 format=3 uid="uid://dbqig81xot2ik"]
 
 [ext_resource type="PackedScene" uid="uid://cjaa3lck17e3x" path="res://ScrollingG.tscn" id="1_4sb87"]
-[ext_resource type="Texture2D" uid="uid://ckaw5oqdixju7" path="res://Assets definitely not taken from GD/groundSquare_01_001-uhd.png" id="2_oat03"]
+[ext_resource type="Texture2D" uid="uid://ckaw5oqdixju7" path="res://Assets definitely not taken from GD/groundSquare_01_001-hd.png" id="2_wbaav"]
+[ext_resource type="Shader" path="res://SuperTextureSplit.gdshader" id="3_f4x4j"]
+[ext_resource type="Texture2D" uid="uid://ih2rhw833dhh" path="res://Assets definitely not taken from GD/GJ_GameSheet03-uhd.png" id="4_txtvj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gghjx"]
+shader = ExtResource("3_f4x4j")
+shader_parameter/start_x = 3116.0
+shader_parameter/start_y = 963.0
+shader_parameter/width = 512.0
+shader_parameter/height = 500.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/brightness = 0.5
+shader_parameter/texture_size = Vector2(4096, 4096)
 
 [node name="G1" type="Node2D"]
 
 [node name="ScrollingG" parent="." instance=ExtResource("1_4sb87")]
-offset_top = 465.0
-offset_right = 2050.0
-offset_bottom = 977.0
+offset_top = 463.0
+offset_right = 1142.0
+offset_bottom = 719.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.565, 0.565)
-texture = ExtResource("2_oat03")
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("2_wbaav")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_gghjx")
+offset_left = -64.0
+offset_top = 719.0
+offset_right = 192.0
+offset_bottom = 975.0
+rotation = -1.5708
+texture = ExtResource("4_txtvj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_gghjx")
+offset_left = 1216.0
+offset_top = 463.0
+offset_right = 1472.0
+offset_bottom = 719.0
+rotation = 1.5708
+texture = ExtResource("4_txtvj")
+expand_mode = 2
+stretch_mode = 4

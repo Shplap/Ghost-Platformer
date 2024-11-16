@@ -6,6 +6,7 @@ uniform float start_y;
 uniform float width;
 uniform float height;
 uniform vec4 color : source_color = vec4(1.0);
+uniform float brightness : hint_range(0.0, 2.0) = 1.0;
 
 // Texture size in pixels
 uniform vec2 texture_size;
@@ -24,6 +25,7 @@ void fragment() {
     if (sampled_uv.x >= 0.0 && sampled_uv.x <= 1.0 && sampled_uv.y >= 0.0 && sampled_uv.y <= 1.0) {
 		vec4 col = texture(TEXTURE, sampled_uv);
 		col *= color;
+		col *= brightness;
 		COLOR = col;
     } else {
         discard;
