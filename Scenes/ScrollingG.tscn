@@ -8,6 +8,7 @@ shader = ExtResource("1_8xw14")
 shader_parameter/scroll_speed = 0.0
 shader_parameter/color = Color(0, 0.4, 1, 1)
 shader_parameter/offset = 0.0
+shader_parameter/width = 258.56
 
 [node name="ScrollingG" type="TextureRect"]
 material = SubResource("ShaderMaterial_lhri2")

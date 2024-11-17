@@ -22,12 +22,13 @@ var ground_ray = null
 var g_shader_material : ShaderMaterial
 var bg_shader_material : ShaderMaterial
 
+var time : float = 0.0
+
 func start_game():
 	#position.x = 393
 	self.linear_velocity = Vector2(463, 0)
 	
-	var time = Time.get_ticks_msec()
-	while position.x < 463:
+	while position.x < 393:
 		await get_tree().process_frame
 	self.linear_velocity = Vector2(0, 0)
 	
@@ -37,9 +38,11 @@ func start_game():
 	bg_shader_material.set_shader_parameter("offset", Time.get_ticks_msec()-time)
 	bg_shader_material.set_shader_parameter("scroll_speed", 0.05)
 	
-	position.x = 463
+	position.x = 393
 
 func _ready():
+	time = Time.get_ticks_msec()
+	
 	g_shader_material = get_parent().get_node("G1").get_node("ScrollingG").material as ShaderMaterial
 	g_shader_material.set_shader_parameter("scroll_speed", 0.0)
 	g_shader_material.set_shader_parameter("color", Vector4(0, 0.4, 1, 1))
