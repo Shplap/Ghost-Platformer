@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbqig81xot2ik"]
+[gd_scene load_steps=8 format=3 uid="uid://dbqig81xot2ik"]
 
 [ext_resource type="PackedScene" uid="uid://cjaa3lck17e3x" path="res://ScrollingG.tscn" id="1_4sb87"]
 [ext_resource type="Texture2D" uid="uid://ckaw5oqdixju7" path="res://Assets definitely not taken from GD/groundSquare_01_001-hd.png" id="2_wbaav"]
@@ -17,6 +17,10 @@ shader_parameter/opacity = 1.0
 [sub_resource type="AtlasTexture" id="AtlasTexture_ao563"]
 atlas = ExtResource("4_2bj5i")
 region = Rect2(3116, 963, 512, 500)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_564lv"]
+normal = Vector2(0, -6.078)
+distance = -76.56
 
 [node name="G1" type="Node2D"]
 
@@ -50,3 +54,9 @@ rotation = 1.5708
 texture = SubResource("AtlasTexture_ao563")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(585, 0)
+shape = SubResource("WorldBoundaryShape2D_564lv")

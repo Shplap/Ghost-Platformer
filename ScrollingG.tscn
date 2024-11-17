@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjaa3lck17e3x"]
 
 [ext_resource type="Shader" path="res://Scrolling.gdshader" id="1_8xw14"]
-[ext_resource type="Script" path="res://G1.gd" id="2_yvx5e"]
+[ext_resource type="Script" path="res://Scripts/G1.gd" id="2_yvx5e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lhri2"]
 shader = ExtResource("1_8xw14")

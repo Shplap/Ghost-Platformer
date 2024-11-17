@@ -1,9 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://5nvliww6idt"]
+[gd_scene load_steps=20 format=3 uid="uid://5nvliww6idt"]
 
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_kbhp8"]
 [ext_resource type="Texture2D" uid="uid://juakspkldjmr" path="res://Assets definitely not taken from GD/player_04-uhd.png" id="1_s5vyj"]
 [ext_resource type="Shader" path="res://SuperTexture.gdshader" id="2_m6dyp"]
 [ext_resource type="Texture2D" uid="uid://7pgidu8cp84u" path="res://Assets definitely not taken from GD/pixel-hd.png" id="3_dmsxg"]
-[ext_resource type="Script" path="res://GroundParticles.gd" id="4_7wk88"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kr3pm"]
+friction = 0.0
+absorbent = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qh4dx"]
 size = Vector2(61, 61)
@@ -19,7 +23,33 @@ shader_parameter/opacity = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nbyoe"]
 atlas = ExtResource("1_s5vyj")
-region = Rect2(132, 2, 120, 120)
+region = Rect2(133, 2, 120, 120)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qy1mp"]
+shader = ExtResource("2_m6dyp")
+shader_parameter/color_mix = 0.0
+shader_parameter/color = Color(0, 1, 1, 1)
+shader_parameter/gradient = false
+shader_parameter/color2 = Color(1, 1, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/opacity = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7mci"]
+atlas = ExtResource("1_s5vyj")
+region = Rect2(132, 124, 73, 53)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4tyh7"]
+shader = ExtResource("2_m6dyp")
+shader_parameter/color_mix = 0.0
+shader_parameter/color = Color(0, 1, 1, 1)
+shader_parameter/gradient = false
+shader_parameter/color2 = Color(1, 1, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/opacity = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jd6t"]
+atlas = ExtResource("1_s5vyj")
+region = Rect2(1, 1, 129, 129)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l8k52"]
 shader = ExtResource("2_m6dyp")
@@ -75,36 +105,15 @@ turbulence_enabled = true
 turbulence_noise_scale = 1.0
 turbulence_noise_speed = Vector3(0, -1, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qy1mp"]
-shader = ExtResource("2_m6dyp")
-shader_parameter/color_mix = 0.0
-shader_parameter/color = Color(0, 1, 1, 1)
-shader_parameter/gradient = false
-shader_parameter/color2 = Color(1, 1, 1, 1)
-shader_parameter/brightness = 1.0
-shader_parameter/opacity = 1.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b7mci"]
-atlas = ExtResource("1_s5vyj")
-region = Rect2(132, 124, 73, 53)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4tyh7"]
-shader = ExtResource("2_m6dyp")
-shader_parameter/color_mix = 0.0
-shader_parameter/color = Color(0, 1, 1, 1)
-shader_parameter/gradient = false
-shader_parameter/color2 = Color(1, 1, 1, 1)
-shader_parameter/brightness = 1.0
-shader_parameter/opacity = 1.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0jd6t"]
-atlas = ExtResource("1_s5vyj")
-region = Rect2(2, 2, 129, 129)
-
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_kr3pm")
+gravity_scale = 4.0
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_kbhp8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = -1
+z_index = 3
 position = Vector2(30.5, 30.5)
 shape = SubResource("RectangleShape2D_qh4dx")
 debug_color = Color(0, 1, 0, 0.419608)
@@ -115,31 +124,9 @@ z_as_relative = false
 material = SubResource("ShaderMaterial_lkqyu")
 offset_right = 61.0
 offset_bottom = 61.0
+pivot_offset = Vector2(30.5, 30.5)
 texture = SubResource("AtlasTexture_nbyoe")
 expand_mode = 1
-
-[node name="GroundParticles" type="GPUParticles2D" parent="Cube"]
-visible = false
-z_index = -2
-material = SubResource("ShaderMaterial_l8k52")
-position = Vector2(10, 54.5)
-amount = 15
-process_material = SubResource("ParticleProcessMaterial_3eory")
-texture = ExtResource("3_dmsxg")
-lifetime = 0.3
-fixed_fps = 60
-script = ExtResource("4_7wk88")
-
-[node name="GroundParticles2" type="GPUParticles2D" parent="Cube"]
-visible = false
-z_index = -2
-material = SubResource("ShaderMaterial_l8k52")
-position = Vector2(10, 54.5)
-amount = 15
-process_material = SubResource("ParticleProcessMaterial_vv1f5")
-texture = ExtResource("3_dmsxg")
-lifetime = 0.3
-script = ExtResource("4_7wk88")
 
 [node name="Cube2" type="TextureRect" parent="."]
 z_index = 1
@@ -149,14 +136,41 @@ offset_left = 10.0
 offset_top = 11.0
 offset_right = 51.0
 offset_bottom = 42.0
+pivot_offset = Vector2(20.5, 19.5)
 texture = SubResource("AtlasTexture_b7mci")
 expand_mode = 1
 
 [node name="CubeGlow" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_4tyh7")
-offset_left = -1.5
-offset_top = -1.5
+offset_left = -2.5
+offset_top = -2.5
 offset_right = 64.0
-offset_bottom = 64.0
+offset_bottom = 63.5
+pivot_offset = Vector2(33, 33.25)
 texture = SubResource("AtlasTexture_0jd6t")
 expand_mode = 1
+
+[node name="GroundParticles" type="GPUParticles2D" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_l8k52")
+position = Vector2(10, 54.5)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_3eory")
+texture = ExtResource("3_dmsxg")
+lifetime = 0.3
+fixed_fps = 60
+
+[node name="GroundParticles2" type="GPUParticles2D" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_l8k52")
+position = Vector2(10, 54.5)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_vv1f5")
+texture = ExtResource("3_dmsxg")
+lifetime = 0.3
+
+[node name="GroundRaycast" type="RayCast2D" parent="."]
+position = Vector2(30.5, 30.5)
+target_position = Vector2(0, 36.5)
