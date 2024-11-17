@@ -19,8 +19,6 @@ atlas = ExtResource("4_2bj5i")
 region = Rect2(3116, 963, 512, 500)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_564lv"]
-normal = Vector2(0, -6.078)
-distance = -76.56
 
 [node name="G1" type="Node2D"]
 
@@ -58,5 +56,5 @@ stretch_mode = 4
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(585, 0)
+position = Vector2(585, 465.5)
 shape = SubResource("WorldBoundaryShape2D_564lv")
