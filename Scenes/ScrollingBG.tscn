@@ -7,6 +7,7 @@
 shader = ExtResource("1_1sybn")
 shader_parameter/scroll_speed = 0.0
 shader_parameter/color = Color(0.14902, 0.490196, 1, 1)
+shader_parameter/offset = 0.0
 
 [node name="ScrollingBG" type="TextureRect"]
 material = SubResource("ShaderMaterial_em8ew")

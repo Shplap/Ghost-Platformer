@@ -1,0 +1,107 @@
+[gd_scene load_steps=17 format=3 uid="uid://bknqvpglia12j"]
+
+[ext_resource type="PackedScene" uid="uid://cgy0na2ibs0yq" path="res://Scenes/BG1.tscn" id="1_hr1s8"]
+[ext_resource type="PackedScene" uid="uid://dbqig81xot2ik" path="res://Scenes/G1.tscn" id="2_5vmvh"]
+[ext_resource type="Script" path="res://Scripts/MenuBG.gd" id="2_pnxon"]
+[ext_resource type="Script" path="res://Scripts/MenuG.gd" id="4_b3eob"]
+[ext_resource type="AudioStream" uid="uid://hf4cy00157mn" path="res://Assets definitely not taken from GD/AbdulCisseFull.mp3" id="5_e0hxo"]
+[ext_resource type="FontFile" uid="uid://c62q5fv0sa3" path="res://Assets definitely not taken from GD/NimbusSans-Regular.ttf" id="6_fvp2i"]
+[ext_resource type="Script" path="res://Scripts/UIBounce.gd" id="7_mg68i"]
+[ext_resource type="Script" path="res://Scripts/FPSCounter.gd" id="7_wl8cu"]
+[ext_resource type="Texture2D" uid="uid://y2vu7mkliy2g" path="res://Assets definitely not taken from GD/GJ_GameSheet03-shplap.png" id="8_258y0"]
+[ext_resource type="Texture2D" uid="uid://c2trueek85k1r" path="res://Assets definitely not taken from GD/GJ_LaunchSheet-shplap.png" id="9_3e5aw"]
+[ext_resource type="Texture2D" uid="uid://c8s0ri5xo6vhy" path="res://Assets definitely not taken from GD/GJ_GameSheet04-uhd.png" id="11_mn61w"]
+[ext_resource type="AudioStream" uid="uid://bu78ndid3xhtn" path="res://Assets definitely not taken from GD/playSound_01.ogg" id="12_1pop8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy4kf"]
+atlas = ExtResource("8_258y0")
+region = Rect2(2488, 2233, 185, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0bc3"]
+atlas = ExtResource("9_3e5aw")
+region = Rect2(195, 25, 1871, 183)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tpra"]
+atlas = ExtResource("8_258y0")
+region = Rect2(492, 917, 400, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s74v"]
+atlas = ExtResource("11_mn61w")
+region = Rect2(459, 77, 420, 418)
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="BG1" parent="." instance=ExtResource("1_hr1s8")]
+script = ExtResource("2_pnxon")
+
+[node name="G1" parent="." instance=ExtResource("2_5vmvh")]
+script = ExtResource("4_b3eob")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_e0hxo")
+autoplay = true
+
+[node name="ExitButton" type="TextureButton" parent="."]
+offset_left = -55.0
+offset_top = -52.0
+offset_right = 130.0
+offset_bottom = 130.0
+rotation = -1.5708
+scale = Vector2(0.36, 0.36)
+pivot_offset = Vector2(92, 91)
+texture_normal = SubResource("AtlasTexture_cy4kf")
+script = ExtResource("7_mg68i")
+start_scale = Vector2(0.36, 0.36)
+end_scale = Vector2(0.45, 0.45)
+
+[node name="FPSCounter" type="RichTextLabel" parent="."]
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 110.0
+offset_bottom = 19.0
+scale = Vector2(1, 0.95)
+theme_override_fonts/normal_font = ExtResource("6_fvp2i")
+theme_override_font_sizes/normal_font_size = 14
+text = "FPS: 0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+drag_and_drop_selection_enabled = false
+script = ExtResource("7_wl8cu")
+
+[node name="GameLogo" type="TextureRect" parent="."]
+offset_left = 128.0
+offset_top = 60.0
+offset_right = 1038.0
+offset_bottom = 149.0
+texture = SubResource("AtlasTexture_j0bc3")
+expand_mode = 1
+
+[node name="ShplapLogo" type="TextureButton" parent="."]
+offset_left = -101.0
+offset_top = 543.0
+offset_right = 299.0
+offset_bottom = 656.0
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(200, 57)
+texture_normal = SubResource("AtlasTexture_6tpra")
+stretch_mode = 0
+script = ExtResource("7_mg68i")
+start_scale = Vector2(0.4, 0.4)
+end_scale = Vector2(0.5, 0.5)
+
+[node name="PlayButton" type="TextureButton" parent="."]
+offset_left = 371.0
+offset_top = 100.0
+offset_right = 791.0
+offset_bottom = 518.0
+scale = Vector2(0.508, 0.508)
+pivot_offset = Vector2(210, 209)
+texture_normal = SubResource("AtlasTexture_5s74v")
+script = ExtResource("7_mg68i")
+start_scale = Vector2(0.508, 0.508)
+end_scale = Vector2(0.608, 0.608)
+
+[node name="PlaySound01" type="AudioStreamPlayer" parent="PlayButton"]
+stream = ExtResource("12_1pop8")

@@ -11,18 +11,21 @@ config_version=5
 [application]
 
 config/name="Geometry Shplap"
-config/version="0.0.3"
-run/main_scene="res://Game.tscn"
+config/version="0.0.4"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://GameIcon.png"
+
+[autoload]
+
+LoadLevel="*res://Scripts/LoadLevel.gd"
 
 [display]
 
 window/size/initial_position_type=3
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
-mouse_cursor/custom_image="res://Assets definitely not taken from GD/cursor.png"
 
 [dotnet]
 

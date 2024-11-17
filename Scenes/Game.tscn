@@ -1,27 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0778wx87y4pe"]
+[gd_scene load_steps=10 format=3 uid="uid://b0778wx87y4pe"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_waon3"]
-[ext_resource type="PackedScene" uid="uid://cgy0na2ibs0yq" path="res://BG1.tscn" id="1_yqbg3"]
-[ext_resource type="PackedScene" uid="uid://dbqig81xot2ik" path="res://G1.tscn" id="2_gkak4"]
-[ext_resource type="PackedScene" uid="uid://5nvliww6idt" path="res://Player.tscn" id="4_ur33v"]
-[ext_resource type="Shader" path="res://SuperTexture.gdshader" id="5_pw2lv"]
-[ext_resource type="Texture2D" uid="uid://cyhxv8yq7pl6w" path="res://Assets definitely not taken from GD/GJ_GameSheet-uhd.png" id="5_snym7"]
+[ext_resource type="PackedScene" uid="uid://cgy0na2ibs0yq" path="res://Scenes/BG1.tscn" id="1_yqbg3"]
+[ext_resource type="PackedScene" uid="uid://dbqig81xot2ik" path="res://Scenes/G1.tscn" id="2_gkak4"]
+[ext_resource type="PackedScene" uid="uid://5nvliww6idt" path="res://Scenes/Player.tscn" id="4_ur33v"]
 [ext_resource type="AudioStream" uid="uid://ddk8cv4hvdqb4" path="res://More Plastic - Obsession [NCS Release] (Instrumental).mp3" id="7_egcp8"]
+[ext_resource type="Texture2D" uid="uid://7pgidu8cp84u" path="res://Assets definitely not taken from GD/pixel-hd.png" id="8_rxbc1"]
+[ext_resource type="Script" path="res://Scripts/Fader.gd" id="9_dtlfs"]
 [ext_resource type="FontFile" uid="uid://c62q5fv0sa3" path="res://Assets definitely not taken from GD/NimbusSans-Regular.ttf" id="10_7dh8w"]
 [ext_resource type="Script" path="res://Scripts/FPSCounter.gd" id="10_xyhwh"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecqam"]
-shader = ExtResource("5_pw2lv")
-shader_parameter/color_mix = 1.0
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/gradient = false
-shader_parameter/color2 = Color(1, 1, 1, 1)
-shader_parameter/brightness = 1.0
-shader_parameter/opacity = 1.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xoh7b"]
-atlas = ExtResource("5_snym7")
-region = Rect2(0, 0, 1785, 8)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_waon3")
@@ -32,22 +19,11 @@ z_index = -1
 [node name="G1" parent="." instance=ExtResource("2_gkak4")]
 z_index = 3
 
-[node name="GravityLine" type="TextureRect" parent="G1"]
-z_index = 4
-material = SubResource("ShaderMaterial_ecqam")
-offset_left = 132.0
-offset_top = 463.0
-offset_right = 1032.0
-offset_bottom = 466.0
-texture = SubResource("AtlasTexture_xoh7b")
-expand_mode = 1
-
 [node name="Player" parent="." instance=ExtResource("4_ur33v")]
 position = Vector2(393, 405)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_egcp8")
-autoplay = true
 
 [node name="FPSCounter" type="RichTextLabel" parent="."]
 offset_left = 3.0
@@ -64,3 +40,11 @@ autowrap_mode = 0
 shortcut_keys_enabled = false
 drag_and_drop_selection_enabled = false
 script = ExtResource("10_xyhwh")
+
+[node name="Fader" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 999
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_rxbc1")
+script = ExtResource("9_dtlfs")

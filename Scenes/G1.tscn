@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbqig81xot2ik"]
+[gd_scene load_steps=11 format=3 uid="uid://dbqig81xot2ik"]
 
-[ext_resource type="PackedScene" uid="uid://cjaa3lck17e3x" path="res://ScrollingG.tscn" id="1_4sb87"]
+[ext_resource type="PackedScene" uid="uid://cjaa3lck17e3x" path="res://Scenes/ScrollingG.tscn" id="1_4sb87"]
 [ext_resource type="Texture2D" uid="uid://ckaw5oqdixju7" path="res://Assets definitely not taken from GD/groundSquare_01_001-hd.png" id="2_wbaav"]
 [ext_resource type="Shader" path="res://SuperTexture.gdshader" id="3_lb4qb"]
 [ext_resource type="Texture2D" uid="uid://y2vu7mkliy2g" path="res://Assets definitely not taken from GD/GJ_GameSheet03-shplap.png" id="4_2bj5i"]
+[ext_resource type="Texture2D" uid="uid://cyhxv8yq7pl6w" path="res://Assets definitely not taken from GD/GJ_GameSheet-uhd.png" id="5_u34g4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gghjx"]
 shader = ExtResource("3_lb4qb")
@@ -19,6 +20,19 @@ atlas = ExtResource("4_2bj5i")
 region = Rect2(3116, 963, 512, 500)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_564lv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_urj8v"]
+shader = ExtResource("3_lb4qb")
+shader_parameter/color_mix = 1.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/gradient = false
+shader_parameter/color2 = Color(1, 1, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/opacity = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx5cw"]
+atlas = ExtResource("5_u34g4")
+region = Rect2(0, 0, 1785, 8)
 
 [node name="G1" type="Node2D"]
 
@@ -58,3 +72,13 @@ stretch_mode = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(585, 465.5)
 shape = SubResource("WorldBoundaryShape2D_564lv")
+
+[node name="GravityLine" type="TextureRect" parent="."]
+z_index = 4
+material = SubResource("ShaderMaterial_urj8v")
+offset_left = 132.0
+offset_top = 463.0
+offset_right = 1032.0
+offset_bottom = 466.0
+texture = SubResource("AtlasTexture_gx5cw")
+expand_mode = 1

@@ -3,6 +3,9 @@ extends Node2D
 # Set up a variable for the window size with the value as the default resolution. 
 var window_size = Vector2i(1280, 720)
 
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 func _process(_delta):
 	# check to see if the window size changes
 	if DisplayServer.window_get_size() != window_size:

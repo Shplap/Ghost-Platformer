@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgy0na2ibs0yq"]
 
-[ext_resource type="PackedScene" uid="uid://qj0hdqdmjdyn" path="res://ScrollingBG.tscn" id="1_runjf"]
+[ext_resource type="PackedScene" uid="uid://qj0hdqdmjdyn" path="res://Scenes/ScrollingBG.tscn" id="1_runjf"]
 [ext_resource type="Texture2D" uid="uid://dw6y2v87puoi5" path="res://Assets definitely not taken from GD/game_bg_01_001-uhd.png" id="2_ql7mb"]
 
 [node name="BG1" type="Node2D"]

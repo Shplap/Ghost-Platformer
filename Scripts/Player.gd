@@ -19,7 +19,37 @@ var current_rotation = 0  # Initial rotation is 0
 # RayCast2D to detect ground
 var ground_ray = null
 
+var g_shader_material : ShaderMaterial
+var bg_shader_material : ShaderMaterial
+
+func start_game():
+	#position.x = 393
+	self.linear_velocity = Vector2(463, 0)
+	
+	var time = Time.get_ticks_msec()
+	while position.x < 463:
+		await get_tree().process_frame
+	self.linear_velocity = Vector2(0, 0)
+	
+	# Offset the G and BG so they don't start in the wrong place (TODO)
+	g_shader_material.set_shader_parameter("offset", Time.get_ticks_msec()-time)
+	g_shader_material.set_shader_parameter("scroll_speed", 3.0)
+	bg_shader_material.set_shader_parameter("offset", Time.get_ticks_msec()-time)
+	bg_shader_material.set_shader_parameter("scroll_speed", 0.05)
+	
+	position.x = 463
+
 func _ready():
+	g_shader_material = get_parent().get_node("G1").get_node("ScrollingG").material as ShaderMaterial
+	g_shader_material.set_shader_parameter("scroll_speed", 0.0)
+	g_shader_material.set_shader_parameter("color", Vector4(0, 0.4, 1, 1))
+	
+	bg_shader_material = get_parent().get_node("BG1").get_node("ScrollingBG").material as ShaderMaterial
+	bg_shader_material.set_shader_parameter("scroll_speed", 0.0)
+	bg_shader_material.set_shader_parameter("color", Vector4(0.149, 0.4902, 1, 1))
+	
+	position.x = -70
+	
 	# Initialize player rotation and particle states
 	cube = get_node("Cube")
 	cube2 = get_node("Cube2")
@@ -84,11 +114,6 @@ func reset_jump():
 
 	## Set current_rotation to match the target rotation after landing
 	current_rotation = rotation_target
-#
-	## Apply smooth rotation while in the air
-	#cube.rotation_degrees = current_rotation
-	#cube2.rotation_degrees = current_rotation
-	#cube_glow.rotation_degrees = current_rotation
 
 	# Allow jumping again by resetting the is_jumping flag
 	is_jumping = false
